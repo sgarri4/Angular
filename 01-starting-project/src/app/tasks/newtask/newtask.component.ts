@@ -1,6 +1,7 @@
 import { NewTaskData } from './../task/task.model';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TaskService } from '../task/tasks.service';
 @Component({
   selector: 'app-newtask',
   standalone: true,
@@ -10,22 +11,26 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewtaskComponent {
   @Output() closeDialog = new EventEmitter<void>();
-  @Output() add = new EventEmitter<NewTaskData>();
+  @Input({required: true}) userId!: string;
 
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
-
+  private tasksService = inject(TaskService);
   isclosedDialog(){
     this.closeDialog.emit();
   }
 
+  onCancel(){
+    this.closeDialog.emit();
+  }
   onSubmit(){
-    this.add.emit({
+    this.tasksService.addTask({
       title: this.enteredTitle,
       summary: this.enteredSummary,
       date: this.enteredDate
-    });
+    },this.userId)
+    this.closeDialog.emit();
   }
 }
 
