@@ -1,6 +1,18 @@
+<!--Para coger un valor del componente en el html se usa {{}}
+[class.active es un class binding, depende de la condición se activa]
+Si queremos utilizar una variable en un atributo, se usa [nombreVariable] -->
 <app-card>
   <button [class.active]="selected" (click)="onSelectUser()">
     <img [src]="imagePath" [alt]="user.name"/>
     <span>{{user.name}}</span>
   </button>
 </app-card>
+
+
+<!--[ ] Corchetes (Property Binding): La información viaja del TypeScript hacia el HTML. 
+Lo usas para enviar datos (ej. [user]="miUsuario" o [class.active]="true").
+( ) Paréntesis (Event Binding): La información viaja del HTML hacia el TypeScript. 
+Lo usas para enviar acciones o eventos (ej. (click), (keyup), (mouseenter)).
+[( )] Banana en una caja (Two-Way Binding): La información viaja en ambas direcciones al mismo tiempo. 
+Es la mezcla de los dos anteriores, como viste en el ejemplo de los formularios con [(ngModel)].
+-->

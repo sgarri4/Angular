@@ -10,12 +10,14 @@ import { TaskService } from '../task/tasks.service';
   styleUrl: './newtask.component.css'
 })
 export class NewtaskComponent {
+  //Envío de datos al componente padre
   @Output() closeDialog = new EventEmitter<void>();
   @Input({required: true}) userId!: string;
 
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
+  //inyectar el servicio de tareas "instanciar"
   private tasksService = inject(TaskService);
   isclosedDialog(){
     this.closeDialog.emit();

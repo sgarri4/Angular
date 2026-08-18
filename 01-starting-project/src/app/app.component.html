@@ -3,6 +3,10 @@
   <ul id="user">
     @for (user of users; track user.id){
       <li>
+        <!--Indica que [user] dentro de user hay un input que espera un valor 
+    (property binding) y le pasamos el valor de user que es el que estamos iterando en el ngFor,
+    el (select) es un output que devuelve un evento (un hijo enviando una señal) y le pasamos la función onSelectedUser 
+    que es la que se ejecuta cuando se emite el evento-->
       <app-user
         [user]="user"
         [selected]="user.id === selectedUser?.id"
