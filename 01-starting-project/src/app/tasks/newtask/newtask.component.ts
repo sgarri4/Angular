@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { TaskService } from '../task/tasks.service';
 @Component({
   selector: 'app-newtask',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './newtask.component.html',
   styleUrl: './newtask.component.css'
 })

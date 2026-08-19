@@ -1,10 +1,10 @@
 <div class="backdrop" (click)="isclosedDialog()"></div>
 <dialog open>
   <h2>Add Task</h2>
-    <!--Para que [(ngModel)] funcione dentro de una etiqueta <form>, 
-    es obligatorio que el input tenga el atributo name (en este caso, name="title").
-    Se conoce esto como two way binding.
-    És necesario importar FormsModule en el módulo para que funcione -->
+   <!-- Perquè [(ngModel)] funcioni dins d'una etiqueta <form>, 
+    és obligatori que l'input tingui l'atribut name (en aquest cas, name="title"). 
+    Això es coneix com a two way binding. 
+    És necessari importar FormsModule al mòdul perquè funcioni -->
   <form (ngSubmit)="onSubmit()">
     <p>
       <label for="title">Title</label>
