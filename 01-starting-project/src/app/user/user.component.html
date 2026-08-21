@@ -2,9 +2,9 @@
 [class.active és un class binding, s'activa depenent de la condició]
 Si volem utilitzar una variable en un atribut, s'utilitza [nomVariable] -->
 <app-card>
-  <button [class.active]="selected" (click)="onSelectUser()">
-    <img [src]="imagePath" [alt]="user.name"/>
-    <span>{{user.name}}</span>
+  <button [class.active]="selected()" (click)="onSelectUser()">
+    <img [src]="imagePath" [alt]="user().name"/>
+    <span>{{user().name}}</span>
   </button>
 </app-card>
 

@@ -1,7 +1,6 @@
-import { NewTaskData } from './../task/task.model';
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, inject, input, output } from '@angular/core';
 import { TaskService } from '../task/tasks.service';
+
 @Component({
   selector: 'app-newtask',
   templateUrl: './newtask.component.html',
@@ -9,9 +8,10 @@ import { TaskService } from '../task/tasks.service';
 })
 export class NewtaskComponent {
   //Envío de datos al componente padre
-  @Output() closeDialog = new EventEmitter<void>();
-  @Input({required: true}) userId!: string;
-
+ // @Output() closeDialog = new EventEmitter<void>();
+  //@Input({required: true}) userId!: string;
+  userId = input.required<string>();
+  closeDialog = output<void>();
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
@@ -29,7 +29,7 @@ export class NewtaskComponent {
       title: this.enteredTitle,
       summary: this.enteredSummary,
       date: this.enteredDate
-    },this.userId)
+    },this.userId())
     this.closeDialog.emit();
   }
 }
